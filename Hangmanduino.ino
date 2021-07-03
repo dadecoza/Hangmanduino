@@ -29,7 +29,7 @@
 #include <Keyboard.h>
 
 #define POTPIN 0
-#define SPEAKERPIN 11
+#define SPEAKERPIN 9
 #define BUTTONPIN 6
 #define LASTBUTTONSTATE HIGH
 #define DEBOUNCEDELAY 50
@@ -65,17 +65,21 @@ int hangman = 0;
 int totalRight = 0;
 long lastDebounceTime = 0;
 
-LiquidCrystal lcd(A0, A1, A2, A3, A4, A5);
+LiquidCrystal lcd(A5, A4, A3, A2, A1, A0);
 
-//Decade Counter reset pin = Arduino pin 8
-//Decade Counter clock pin = Arduino pin 9
-//Keyboard row 1 = pin 2
+//Decade Counter reset pin = Arduino pin 8 - 13
+//Decade Counter clock pin = Arduino pin 9 - 12
+//Keyboard row 1 = pin 2 
 //Keyboard row2 = pin 3
 //Keyboard row3 = pin 4
 //Keyboard row4 = pin 5
 //Keyboard row5 = pin 6
 //Keyboard row6 = pin 7
-Keyboard kb(8,9,2,3,4,5,6,7);
+
+// 8, 10, 7, 11, 6, 5
+
+Keyboard kb(13,12,5, 6, 11, 7, 10, 8);
+// Keyboard kb(13,12,8, 10, 7, 11, 6, 5);
 
 String guessWord = String(10);
 
